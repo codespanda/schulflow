@@ -27,8 +27,8 @@ jobs:
       - run: npm run build
         env:
           VITE_BASE: /${{ github.event.repository.name }}/
-      # SPA fallback: GitHub Pages serves 404.html for unknown paths like /dashboard
-      - run: cp dist/index.html dist/404.html
+      # Real pages for every route (200 on refresh) + 404.html fallback
+      - run: node scripts/spa-routes.mjs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
