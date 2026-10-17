@@ -17,15 +17,17 @@ function HeroVisual() {
 
   return (
     <div ref={ref} className="relative w-full">
+      {/* top of the photo fades and blurs into the banner background */}
       <img
         src={asset("/images/hero-visual.png")}
         alt="Smiling student holding books"
-        className="block w-full select-none"
+        className="block w-full select-none [mask-image:linear-gradient(to_bottom,transparent,black_38%)]"
         draggable={false}
       />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[40%] backdrop-blur-md [mask-image:linear-gradient(to_bottom,black,transparent)]" />
       {width > 0 && (
         <DashboardPreview
-          className="absolute origin-top-left"
+          className="absolute z-10 origin-top-left"
           style={{
             left: `${DASH.left * 100}%`,
             top: `${DASH.top * 100}%`,
@@ -82,7 +84,7 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="w-full shrink-0 self-start lg:w-[54%]">
+        <div className="w-full shrink-0 self-end lg:w-[54%] lg:pt-6">
           <HeroVisual />
         </div>
       </div>
