@@ -24,9 +24,12 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # base_path is "" with a custom domain (served from /) or "/<repo>" on github.io
+      - id: pages
+        uses: actions/configure-pages@v5
       - run: npm run build
         env:
-          VITE_BASE: /${{ github.event.repository.name }}/
+          VITE_BASE: ${{ steps.pages.outputs.base_path }}/
       # Real pages for every route (200 on refresh) + 404.html fallback
       - run: node scripts/spa-routes.mjs
       - uses: actions/upload-pages-artifact@v3
