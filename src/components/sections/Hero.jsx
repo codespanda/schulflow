@@ -40,8 +40,9 @@ function HeroVisual() {
 export default function Hero() {
   return (
     <section className="overflow-hidden bg-[#fffcf1]">
-      <div className="flex flex-col lg:flex-row lg:items-center">
-        <div className="container py-10 sm:py-14 lg:mx-0 lg:w-auto lg:max-w-none lg:flex-1 lg:py-12 lg:pl-[max(2rem,calc((100vw-1240px)/2+2rem))] lg:pr-4">
+      {/* Text and image share the page container, so the image ends in line with the header's "Get Started Free" button */}
+      <div className="container flex flex-col lg:flex-row lg:items-center lg:gap-4">
+        <div className="py-10 sm:py-14 lg:min-w-0 lg:flex-1 lg:py-12">
           <div className="inline-flex items-center gap-2.5 rounded-full bg-[#fff3cf] px-4 py-1.5 text-[12px] font-medium text-navy sm:text-[13px]">
             <img src={asset("/images/logo.png")} alt="" className="h-4 w-auto" />
             Smarter Schools
@@ -49,7 +50,7 @@ export default function Hero() {
             Better Tomorrow
           </div>
 
-          <h1 className="mt-5 text-[34px] font-bold leading-[1.12] tracking-[-0.02em] text-navy sm:text-5xl lg:text-[42px] xl:text-[50px] 2xl:text-[54px]">
+          <h1 className="mt-5 text-[34px] font-bold leading-[1.12] tracking-[-0.02em] text-navy sm:text-5xl lg:text-[40px] xl:text-[50px] 2xl:text-[54px]">
             Complete School
             <br />
             <span className="lg:whitespace-nowrap">Management <span className="text-primary">System</span></span>
@@ -81,7 +82,7 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="w-full shrink-0 self-start lg:w-[54%] lg:max-w-[780px]">
+        <div className="w-full shrink-0 self-start lg:w-[54%]">
           <HeroVisual />
         </div>
       </div>
